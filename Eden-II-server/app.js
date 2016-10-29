@@ -53,13 +53,6 @@ app.use(path.join(API_URL, 'users'), userRoutes);
 app.use(path.join(API_URL, 'groupHomes'), groupHomeRoutes);
 app.use(API_URL, accountRoutes);
 
-var sessionOptions = {
-  secret: 'abcdefg',
-  saveUninitialized: false,
-  resave: false
-};
-app.use(session(sessionOptions));
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
