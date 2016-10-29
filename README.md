@@ -10,4 +10,4 @@ Engineered an application for Eden II in order to decipher and recognize autisti
 
 There may or may not be an instance of this running [here](http://ec2-54-165-13-70.compute-1.amazonaws.com:3000/)
 
-You can find our final presentation of our application [here](https://docs.google.com/presentation/d/18MQRt_VWbF8fx8Z14gquqIph4c72xy_UfhZlAnLklkc/edit?ts=58147da0#slide=id.p)
+You can view the final presentation of our application [here](https://docs.google.com/presentation/d/18MQRt_VWbF8fx8Z14gquqIph4c72xy_UfhZlAnLklkc/edit?ts=58147da0#slide=id.p)
