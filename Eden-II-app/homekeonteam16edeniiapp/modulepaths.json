@@ -824,7 +824,6 @@
   "/home/keon/team-16/Eden-II-app/node_modules/moment/src/moment.js",
   "/home/keon/team-16/Eden-II-app/src/providers/user-data.ts",
   "/home/keon/team-16/Eden-II-app/src/providers/conference-data.ts",
-  "/home/keon/team-16/Eden-II-app/src/pages/schedule-filter/schedule-filter.ts",
   "/home/keon/team-16/Eden-II-app/src/pages/session-detail/session-detail.ts",
   "/home/keon/team-16/Eden-II-app/src/pages/schedule/schedule.ts",
   "/home/keon/team-16/Eden-II-app/src/pages/speaker-detail/speaker-detail.ts",
@@ -837,6 +836,7 @@
   "/home/keon/team-16/Eden-II-app/src/pages/about-popover/about-popover.ts",
   "/home/keon/team-16/Eden-II-app/src/pages/about/about.ts",
   "/home/keon/team-16/Eden-II-app/src/pages/map/map.ts",
+  "/home/keon/team-16/Eden-II-app/src/pages/schedule-filter/schedule-filter.ts",
   "/home/keon/team-16/Eden-II-app/src/app/app.module.ts",
   "/home/keon/team-16/Eden-II-app/src/app/main.dev.ts"
 ]

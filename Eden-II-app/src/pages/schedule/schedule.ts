@@ -24,7 +24,7 @@ export class SchedulePage {
   // with the variable #scheduleList, `read: List` tells it to return
   // the List and not a reference to the element
   @ViewChild('scheduleList', {read: List}) scheduleList: List;
-
+  isPicture = 0;
   dayIndex = 0;
   queryText = '';
   segment = 'all';
@@ -33,6 +33,7 @@ export class SchedulePage {
   groups = [];
   confDate: string;
   counter = 0;
+  // inputDisabled : boolean;
   private timer;
 
   constructor(
@@ -108,19 +109,23 @@ export class SchedulePage {
   }
 
   transtrans(){
+    // this.inputDisabled : boolean;
     setTimeout(() => this.translate(), 3000);
+    // this.inputDisabled : boolean;;
   }
 
   presentFilter() {
-    let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
-    modal.present();
+    // let modal = this.modalCtrl.create(ScheduleFilterPage, this.excludeTracks);
+    // modal.present();
 
-    modal.onDidDismiss((data: any[]) => {
-      if (data) {
-        this.excludeTracks = data;
-        this.updateSchedule();
-      }
-    });
+    // modal.onDidDismiss((data: any[]) => {
+    //   if (data) {
+    //     this.excludeTracks = data;
+    //     this.updateSchedule();
+    //   }
+    // });
+    this.queryText = ""
+    alert("A new vocabulary is added to the library")
 
   }
 
@@ -156,6 +161,15 @@ export class SchedulePage {
     }
 
   }
+
+  showPicture() {
+    this.isPicture = 1;
+  }
+
+  dontShowPicture() {
+    this.isPicture = 0;
+  }
+
 
   removeFavorite(slidingItem: ItemSliding, sessionData, title) {
     let alert = this.alertCtrl.create({

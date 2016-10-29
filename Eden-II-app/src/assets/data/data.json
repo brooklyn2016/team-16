@@ -12,19 +12,22 @@
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Food"]
+              "tracks": ["Food"],
+              "percentage": 95
             },{
               "name": "Able",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Food"]
+              "tracks": ["Food"],
+              "percentage": 76
             },{
-              "name": "Bar",
+              "name": "Abba",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 71
             }
           ]
         },
@@ -32,23 +35,26 @@
           "time": "4:00 pm",
           "sessions": [
             {
-              "name": "Apartment",
+              "name": "Water",
               "timeStart": "4:00 pm",
               "timeEnd": "9:00 pm",
               "location": "Main hallway",
-              "tracks": ["Tooling"]
+              "tracks": ["Tooling"],
+              "percentage": 78
             },{
-              "name": "Water",
+              "name": "Water Fountain",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 45
             },{
-              "name": "Washington",
+              "name": "Wash",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 84
             }
           ]
         },
@@ -60,37 +66,50 @@
               "timeStart": "4:00 pm",
               "timeEnd": "9:00 pm",
               "location": "Main hallway",
-              "tracks": ["Tooling"]
+              "tracks": ["Tooling"],
+              "percentage": 25
             },{
               "name": "Bathroom",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 96
             },{
               "name": "Bedroom",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 27
             },{
               "name": "Bath",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 23
             },{
               "name": "Cookie",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 99
             },{
               "name": "Cook",
               "timeStart": "8:00 am",
               "timeEnd": "9:00 am",
               "location": "Main hallway",
-              "tracks": ["Ionic"]
+              "tracks": ["Ionic"],
+              "percentage": 75
+            },{
+              "name": "Car",
+              "timeStart": "8:00 am",
+              "timeEnd": "9:00 am",
+              "location": "Main hallway",
+              "tracks": ["Ionic"],
+              "percentage": 25
             }
           ]
         }

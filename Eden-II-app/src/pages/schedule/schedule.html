@@ -5,13 +5,19 @@
     </button>
 
     <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
-      <ion-segment-button value="all">
+      <ion-segment-button value="all" (click)="dontShowPicture()">
         Voice
       </ion-segment-button>
-      <ion-segment-button value="favorites">
+      <ion-segment-button value="favorites" (click)="showPicture()">
         Picture
       </ion-segment-button>
     </ion-segment>
+
+    <ion-buttons end>
+      <button ion-button ion-plus-circled icon-only (click)="presentFilter()">
+        <ion-icon>+</ion-icon>
+      </button>
+    </ion-buttons>
 
   </ion-navbar>
 
@@ -25,11 +31,15 @@
 </ion-header>
 
 <ion-content>
-  <button ion-button (click)="transtrans()" type="submit" color="primary" block>
+  <button ion-button
+          (click)="transtrans()"
+          type="submit"
+          color="primary"
+          block>
     Translate
   </button>
 
-  <ion-list #scheduleList [hidden]="shownSessions === 0">
+  <ion-list #scheduleList [hidden]="shownSessions === 0" [hidden]="isPicture === 1">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
 <!-- 
@@ -44,7 +54,7 @@
         <button ion-item (click)="check()">
           <h3>{{session.name}}</h3>
           <p>
-            99%
+            {{session.percentage}}%
 <!--             {{session.timeStart}} &mdash;
             {{session.timeEnd}}:
             {{session.location}} -->
@@ -66,9 +76,11 @@
 
   </ion-list>
 
-  <ion-list-header [hidden]="shownSessions > 0">
-      No Sessions Found
-  </ion-list-header>
+<!-- Picture Tab -->
+  <ion-list #scheduleList [hidden]="shownSessions === 0" [hidden]="isPicture === 0">
 
+      <img src="assets/img/emoji.jpg">
+
+  </ion-list>
 
 </ion-content>
