@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { SessionDetailPage } from '../session-detail/session-detail';
 
+import { SchedulePage } from '../schedule/schedule';
 
 @Component({
   selector: 'page-speaker-detail',
@@ -18,5 +19,9 @@ export class SpeakerDetailPage {
 
   goToSessionDetail(session) {
     this.navCtrl.push(SessionDetailPage, session);
+  }
+
+  goToTranslate(session) {
+  	this.navCtrl.push(SchedulePage, session)
   }
 }

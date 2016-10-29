@@ -32,6 +32,8 @@ export class SchedulePage {
   shownSessions: any = [];
   groups = [];
   confDate: string;
+  counter = 0;
+  private timer;
 
   constructor(
     public alertCtrl: AlertController,
@@ -54,6 +56,42 @@ export class SchedulePage {
 
   updateSchedule() {
     // Close any open sliding items when the schedule updates
+      this.scheduleList && this.scheduleList.closeSlidingItems();
+
+      this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
+        let timestamp = data.date;
+
+        /*
+          To learn how to use third party libs in an
+          Ionic app check out our docs here: http://ionicframework.com/docs/v2/resources/third-party-libs/
+        */
+        this.confDate = moment(timestamp).format('MM/DD/YYYY');
+        this.shownSessions = data.shownSessions;
+        this.groups = data.groups;
+      });
+  }
+
+  translate() {
+    if (this.counter == 0) {
+      this.queryText = "ab"; // apple
+    
+      this.counter ++;
+    } else if (this.counter == 1) {
+      this.queryText = "wa"; //water
+
+      this.counter ++;
+    } else if (this.counter == 2) {
+      this.queryText = "b"; // bathroom
+
+      this.counter ++;
+    } else if (this.counter == 3) {
+      this.queryText = "co"; //cookie
+
+      this.counter ++;
+    } else {
+      this.counter = 0;
+    }
+    console.log("translate triggered");
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
     this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).then(data => {
@@ -67,6 +105,10 @@ export class SchedulePage {
       this.shownSessions = data.shownSessions;
       this.groups = data.groups;
     });
+  }
+
+  transtrans(){
+    setTimeout(() => this.translate(), 3000);
   }
 
   presentFilter() {
@@ -143,5 +185,12 @@ export class SchedulePage {
     });
     // now present the alert on top of all other content
     alert.present();
+  }
+    goToTranslate(session) {
+    this.navCtrl.push(SchedulePage, session)
+  }
+
+  check(){
+
   }
 }
