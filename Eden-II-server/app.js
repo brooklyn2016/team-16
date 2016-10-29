@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//Giving up on
+//var session = require('cookie-session');
+//Giving up on auth
 /*
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
@@ -49,6 +50,13 @@ app.use('/', routes);
 app.use(path.join(API_URL, 'users'), userRoutes);
 app.use(path.join(API_URL, 'groupHomes'), groupHomeRoutes);
 app.use(API_URL, accountRoutes);
+
+var sessionOptions = {
+  secret: 'abcdefg',
+  saveUninitialized: false,
+  resave: false
+};
+app.use(session(sessionOptions));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
