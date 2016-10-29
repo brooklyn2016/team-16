@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
-var passportLocalMongoose = require('passport-local-mongoose');
+//var passportLocalMongoose = require('passport-local-mongoose');
 
 
 var groupHomeSchema = new Schema({
@@ -11,6 +11,6 @@ var groupHomeSchema = new Schema({
 	'participants' : Array
 });
 
-groupHomeSchema.plugin(passportLocalMongoose);
+//groupHomeSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('groupHome', groupHomeSchema);

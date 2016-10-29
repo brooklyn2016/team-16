@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//Giving up on
+/*
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
+*/
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -22,27 +25,11 @@ var groupHomeRoutes = require( path.join(__dirname, 'routes', 'groupHomeRoutes.j
 var accountRoutes = require( path.join(__dirname, 'routes', 'account.js') );
 var user = require(path.join(__dirname, 'models', 'userModel.js'));
 
-passport.use(new localStrategy(
-    function(username, password, done) {
-      user.findOne({ username: username }, function (err, user) {
-        if (err) { return done(err); }
-        if (!user) {
-          return done(null, false, { message: 'Incorrect username.' });
-        }
-        if (!user.validPassword(password)) {
-          return done(null, false, { message: 'Incorrect password.' });
-        }
-        return done(null, user);
-      });
-    }
-));
-
-passport.serializeUser(function(user, done){
-  done(user.Id);
-});
-passport.deserializeUser(function(user, done){
-  done({id: Id});
-});
+/*
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
