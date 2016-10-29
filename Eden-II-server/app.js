@@ -15,17 +15,18 @@ var localStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var mongoose = require('mongoose');
+var jsonwebtoken = require('jsonwebtoken');
 
 //ensure that server is viewable
 var HOST = '0.0.0.0';
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 var API_URL = '/api';
 
 var app = express();
 
-var userRoutes = require( path.join(__dirname, 'routes', 'userRoutes.js'));
-var groupHomeRoutes = require( path.join(__dirname, 'routes', 'groupHomeRoutes.js') );
-var accountRoutes = require( path.join(__dirname, 'routes', 'account.js') );
+//var userRoutes = require( path.join(__dirname, 'routes', 'userRoutes.js'));
+//var groupHomeRoutes = require( path.join(__dirname, 'routes', 'groupHomeRoutes.js') );
+var apiRoutes = require( path.join(__dirname, 'routes', 'apiRoutes.js') );
 var user = require(path.join(__dirname, 'models', 'userModel.js'));
 
 /*
@@ -34,6 +35,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 */
 
+app.set('secret', 'superSekrit!!');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //who needs a view engine?
@@ -49,9 +51,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use(path.join(API_URL, 'users'), userRoutes);
-app.use(path.join(API_URL, 'groupHomes'), groupHomeRoutes);
-app.use(API_URL, accountRoutes);
+app.use(API_URL, apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
