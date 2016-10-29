@@ -45,7 +45,7 @@ export class SchedulePage {
   }
 
   ionViewDidEnter() {
-    this.app.setTitle('Schedule');
+    this.app.setTitle('Translate');
   }
 
   ngAfterViewInit() {

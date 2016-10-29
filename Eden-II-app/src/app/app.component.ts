@@ -7,7 +7,6 @@ import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -32,10 +31,8 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageObj[] = [
-    { title: 'Schedule', component: TabsPage, icon: 'calendar' },
-    { title: 'Speakers', component: TabsPage, index: 1, icon: 'contacts' },
-    { title: 'Map', component: TabsPage, index: 2, icon: 'map' },
-    { title: 'About', component: TabsPage, index: 3, icon: 'information-circle' },
+    { title: 'Participants', component: TabsPage, icon: 'contacts' },
+    { title: 'Translate', component: TabsPage, index: 1, icon: 'microphone' }
   ];
   loggedInPages: PageObj[] = [
     { title: 'Account', component: AccountPage, icon: 'person' },
@@ -45,7 +42,7 @@ export class ConferenceApp {
     { title: 'Login', component: LoginPage, icon: 'log-in' },
     { title: 'Signup', component: SignupPage, icon: 'person-add' }
   ];
-  rootPage: any = TutorialPage;
+  rootPage: any = LoginPage;
 
   constructor(
     public events: Events,
