@@ -7,11 +7,20 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var mongoose = require('mongoose');
+
+var HOST = '0.0.0.0';
+var PORT = 3000;
+var API_URL = '/api';
 
 var app = express();
 
+var userRoutes = require( path.join(__dirname, 'routes', 'userRoutes.js'));
+var groupHomeRoutes = require( path.join(__dirname, 'routes', 'groupHomeRoutes.js') );
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+//who needs a view engine?
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -23,7 +32,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use(path.join(API_URL, 'users'), userRoutes);
+app.use(path.join(API_URL, 'homes'), groupHomeRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,4 +68,5 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
-app.listen(3000, 'localhost');
+mongoose.connect('mongodb://localhost/edenII');
+app.listen(PORT, HOST);
