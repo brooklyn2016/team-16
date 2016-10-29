@@ -17,7 +17,6 @@ import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -38,7 +37,6 @@ import { UserData } from '../providers/user-data';
     SpeakerDetailPage,
     SpeakerListPage,
     TabsPage,
-    TutorialPage
   ],
   imports: [
     IonicModule.forRoot(ConferenceApp)
@@ -58,7 +56,6 @@ import { UserData } from '../providers/user-data';
     SpeakerDetailPage,
     SpeakerListPage,
     TabsPage,
-    TutorialPage
   ],
   providers: [ConferenceData, UserData, Storage]
 })

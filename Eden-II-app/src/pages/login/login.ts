@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
+// import { SpeakerListPage } from '../speaker-list/speaker-list'
 import { UserData } from '../../providers/user-data';
 
 

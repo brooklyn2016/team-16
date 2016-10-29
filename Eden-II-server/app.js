@@ -11,10 +11,12 @@ var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 */
 
+//differentiate paths
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var mongoose = require('mongoose');
 
+//ensure that server is viewable
 var HOST = '0.0.0.0';
 var PORT = 3000;
 var API_URL = '/api';

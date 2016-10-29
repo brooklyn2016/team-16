@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Speakers</ion-title>
+    <ion-title>Participants</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,13 +15,12 @@
         <ion-avatar item-left>
           <img [src]="speaker.profilePic">
         </ion-avatar>
-        {{speaker.name}}
-        <button ion-button icon-only (click)="openContact(speaker)" clear item-right>
-          <ion-icon name="help-circle"></ion-icon>
+        <button ion-item (click)="goToSpeakerDetail(speaker)">
+          <h2>{{speaker.name}}</h2>
         </button>
       </ion-item>
     </ion-card-header>
-
+<!-- 
     <ion-card-content class="outer-content">
       <ion-list>
         <button ion-item *ngFor="let session of speaker.sessions" (click)="goToSessionDetail(session)">
@@ -42,7 +41,7 @@
         <ion-icon name="share"></ion-icon>
         Share
       </button>
-    </ion-item>
+    </ion-item> -->
 
   </ion-card>
 </ion-content>
