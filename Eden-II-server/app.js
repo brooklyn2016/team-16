@@ -13,7 +13,7 @@ var localStrategy = require('passport-local').Strategy;
 
 //differentiate paths
 var routes = require('./routes/index');
-var users = require('./routes/users');
+//var users = require('./routes/users');
 var mongoose = require('mongoose');
 var jsonwebtoken = require('jsonwebtoken');
 

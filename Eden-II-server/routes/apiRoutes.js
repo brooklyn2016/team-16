@@ -5,21 +5,22 @@ var jsonwebtoken = require('jsonwebtoken');
 var user = require(path.join(__dirname, '..', 'models', 'userModel.js'));
 var groupHomeController = require('../controllers/groupHomeController.js');
 var userController = require('../controllers/userController.js');
+var userModel = require('../models/userModel.js');
 
 router.post('/login', function(req, res){
     user.findOne({username:req.body.username}, function(err, user){
         if(err){
             res.status(err.status || 500);
-            res.render('error', {
+            return res.render('error', {
                 message: err.message,
                 error: err
             });
         }
         //Would not distinguish between the 2 on a real implementation
         if(!user)
-            res.json({success:false, message: 'Auth failure. User not found.'});
+            return res.json({success:false, message: 'Auth failure. User not found.'});
         if(req.body.password !== user.password)
-            res.json({success:false, message: 'Auth failure. Password incorrect'});
+            return res.json({success:false, message: 'Auth failure. Password incorrect.'});
         var token = jsonwebtoken.sign(user, 'superSekrit!!', {
             expiresIn: 1000000
         });
@@ -31,12 +32,12 @@ router.post('/login', function(req, res){
     });
 });
 
-router.use(function(req, res, next){
+router.use(function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
-    if(token){
-        jsonwebtoken.verify(token, 'superSekrit!!', function(err, decoded){
-            if(err)
-                res.json({success:false, message: 'invalid token.'});
+    if (token !== undefined) {
+        jsonwebtoken.verify(token, 'superSekrit!!', function (err, decoded) {
+            if (err)
+                res.json({success: false, message: 'invalid token.'});
             else {
                 req.decoded = decoded;
                 next();
@@ -44,15 +45,34 @@ router.use(function(req, res, next){
         })
     }
     else
-        res.json({success:false, message: 'no token.'});
-
+        //res.json({success: false, message: 'no token.'});
+        res.send(req.headers);
+});
 
 var userPath =  '/users';
 
 /*
  * GET
  */
-router.get(path.join(userPath, '/'), userController.list);
+//router.get(path.join(userPath, '/'), userController.list);
+router.get(path.join(userPath, '/'), function(req, res){
+    if(!req.params)
+        req.params = {};
+    //console.log(token);
+    var userId = req.decoded._doc._id;
+    var user = userModel.findOne({_id:userId}, function(err, user){
+        console.log(user);
+    });
+    if(user.category = 'admin'){
+        //admin can see everyone
+        return userController.list;
+    }
+    else if(user.category = 'parent'){
+        return res.json(user.participants);
+    } else { //category is caretaker
+        return res.json(user.participants);
+    }
+});
 
 /*
  * GET
@@ -103,7 +123,7 @@ router.put(path.join(groupHomePath, '/:id'), groupHomeController.update);
  */
 router.delete(path.join(groupHomePath, '/:id'), groupHomeController.remove);
 
-});
+
 
 module.exports = router;
 
